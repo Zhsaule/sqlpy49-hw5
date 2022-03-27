@@ -46,10 +46,11 @@ if __name__ == '__main__':
     pprint(sel)
 
     # 5. названия сборников, в которых присутствует конкретный исполнитель (Sting);
-    sel = connection.execute("""
+    artist_ = 'Sting'
+    sel = connection.execute(f"""
     SELECT a.album_name
     FROM album a JOIN artistalbum a2 ON a.id = a2.album_id JOIN artist a3 ON a3.id = a2.artist_id
-    WHERE a3.name = 'Sting'
+    WHERE a3.name = '{artist_}'
     """).fetchall()
     print(f'\n5. Названия сборников, в которых присутствует конкретный исполнитель (по выбору):')
     pprint(sel)
